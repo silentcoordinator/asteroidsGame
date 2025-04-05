@@ -3,6 +3,7 @@ from constants import *
 import pygame
 from player import *
 from asteroidfield import *
+from circleshape import *
 
 
 def main():
@@ -35,6 +36,9 @@ def main():
                 return
         screen.fill("Black")
         updatable.update(dt)
+        for asteroid in asteroids:
+            if asteroid.collide(player):
+                return print("Game Over!")
         for thing in drawable:
             thing.draw(screen)
         #player.draw(screen)
